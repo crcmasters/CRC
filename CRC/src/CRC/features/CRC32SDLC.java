@@ -2,11 +2,11 @@ package CRC.features;
 
 public class CRC32SDLC {
 
-	String inputMessage;
-	String outputMessage = "";
-	int[] generator;
-	int[] message;
-	int[] table;
+	public String inputMessage;
+	public String outputMessage = "";
+	public int[] generator;
+	public int[] message;
+	public int[] table;
 
 	public CRC32SDLC(String message, String crcType) {
 		inputMessage = message;
@@ -24,19 +24,19 @@ public class CRC32SDLC {
 	}
 
 	// metoda wyznacza wiadomoœæ wyjœciow¹
-	void countCRC() {
+	public void countCRC() {
 		table = new int[generator.length + message.length - 1];
 		for (int i = 0; i < message.length; i++)
 			table[i] = message[i];
 		table = count(generator, table);
 		for (int i = 0; i < message.length; i++) {
 			outputMessage += message[i] ^ table[i];
-		}
+		}		
 	}
 
 	// metoda pomocnicza w której wykorzystywana jest operacja alternatywy
 	// wykluczaj¹cej
-	int[] count(int g[], int t[]) {
+	public int[] count(int g[], int t[]) {
 		int thiss = 0;
 		while (true) {
 			for (int i = 0; i < g.length; i++)

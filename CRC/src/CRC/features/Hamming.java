@@ -5,12 +5,12 @@ import java.math.BigInteger;
 public class Hamming {
 
 	String wiadomosc_Binarnie; // wiadomosc binarnie String
-	protected int[] odebrane_bity; // wiadomosc binarnie int[]
-	protected int[] zakodowane_bity; // przetwarzane bity
-	protected String wygenerowane_bity; // wiadomosc po zakodowaniu
-	protected String poprawione_bity; // wiadomosc po poprawieniu bledow
-	protected String odtworzone_bity; // wiadomosc po zdekodowaniu
-	protected String odtworzona_wiadomosc; // odtworzony tekst
+	public int[] odebrane_bity; // wiadomosc binarnie int[]
+	public int[] zakodowane_bity; // przetwarzane bity
+	public String wygenerowane_bity; // wiadomosc po zakodowaniu
+	public String poprawione_bity; // wiadomosc po poprawieniu bledow
+	public String odtworzone_bity; // wiadomosc po zdekodowaniu
+	public String odtworzona_wiadomosc; // odtworzony tekst
 
 	public Hamming(String tekst) {
 
@@ -34,7 +34,7 @@ public class Hamming {
 	}
 
 	// modyfikacja danych w dowolnym momencie
-	protected void zmien_buffer(String ciag) {
+	public void zmien_buffer(String ciag) {
 
 		String binarnie;
 
@@ -53,7 +53,7 @@ public class Hamming {
 		}
 	}
 
-	protected void koduj() {
+	public void koduj() {
 		// okreœlenie liczby bitów parzystoœci
 		int liczba_bitow_parzystosci = 0;
 		int j = 0;
@@ -100,7 +100,7 @@ public class Hamming {
 	}
 
 	// funkcja wyliczaj¹ca wartoœæ danego bitu parzystoœci
-	protected int generuj_bit_parzystosci(int[] tablica, int potega) {
+	public int generuj_bit_parzystosci(int[] tablica, int potega) {
 		int parzystosc = 0; // licznik bitów znacz¹cych o wartoœci "1"
 		boolean znaczace = true; // zmienna pomagaj¹ca pomijaæ bity nie brane
 									// pod uwagê
@@ -137,7 +137,7 @@ public class Hamming {
 	}
 
 	// procedura do przek³amywania bitu na n-tej pozycji
-	protected void przeklam_bit(int pozycja) {
+	public void przeklam_bit(int pozycja) {
 		if (zakodowane_bity[pozycja - 1] == 0)
 			zakodowane_bity[pozycja - 1] = 1;
 		else
@@ -148,7 +148,7 @@ public class Hamming {
 	// je¿eli wykryje b³¹d, zwraca jego pozycjê (od 1 do n)
 	// je¿eli nie znajdzie b³êdu, zwraca 0
 	// w innym wypadku -1
-	protected int sprawdz_ciag() {
+	public int sprawdz_ciag() {
 		int blad1;
 		blad1 = poprawnosc(zakodowane_bity);
 		if (blad1 == 0)
@@ -161,7 +161,7 @@ public class Hamming {
 
 	// funkcja szukaj¹ca b³êdu
 	// zwraca jego pozycjê, b¹dŸ "0"
-	protected int poprawnosc(int[] tablica) {
+	public int poprawnosc(int[] tablica) {
 		int suma_bitow_parzystosci = 0;
 		int index_bitu;
 		int liczba_bitow_parzystosci;
@@ -180,7 +180,7 @@ public class Hamming {
 
 	// procedura poprawiaj¹ca przek³amany bit na n-tej pozycji
 	// oraz zapisuj¹ca rezultat w zmiennej
-	protected void popraw(int pozycja) {
+	public void popraw(int pozycja) {
 		if (zakodowane_bity[pozycja - 1] == 0)
 			zakodowane_bity[pozycja - 1] = 1;
 		else
@@ -198,7 +198,7 @@ public class Hamming {
 
 	// procedura dekoduj¹ca ci¹g bitów do oryginalego ci¹gu
 	// oraz odtwarzaj¹ca tekst
-	protected void odtworz_wiadomosc() {
+	public void odtworz_wiadomosc() {
 		String ciag = "";
 		char znak;
 		String tresc = "";

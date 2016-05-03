@@ -2,10 +2,10 @@ package CRC.features;
 
 public class Parzystosc {
 
-	private int[] orginalnaWiadomosc;
-	private int[] finalneBity;
-	private String finalnyTekst;
-	private String wiadomoscOrginalnaTekst;
+	public int[] orginalnaWiadomosc;
+	public int[] finalneBity;
+	public String finalnyTekst;
+	public String wiadomoscOrginalnaTekst;
 
 	public Parzystosc(int[] message) {
 		// TODO Auto-generated constructor stub
@@ -18,6 +18,7 @@ public class Parzystosc {
 			orginalnaWiadomosc[i] = message[i];
 			finalneBity[i + 1] = message[i];
 		}
+		obliczBitParzystosci();
 	}
 
 	/**
