@@ -11,12 +11,11 @@ import javafx.stage.Stage;
 
 public class MainGuiClass extends Application {
 
-	public static final String TITLE = "Kontrola b³êdów";
-	
+	public static final String TITLE = "Metody kontroli b³êdów";	
 	private Stage mStage;
 	private BorderPane rootLayout;
     private AnchorPane targetView;    
-	public Scene mScene;	
+	public Scene mScene;		
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -24,6 +23,7 @@ public class MainGuiClass extends Application {
 		
 		this.mStage = primaryStage;
 		this.mStage.setTitle(TITLE);
+		this.mStage.setResizable(false);
 		
 		initRootLayout();
 		initMainWindow();
@@ -37,8 +37,7 @@ public class MainGuiClass extends Application {
 		return this.mStage;
 	}
 	
-	private void initRootLayout() {
-		
+	private void initRootLayout() {		
 		try {
 			
 			FXMLLoader loader = new FXMLLoader();	
@@ -60,8 +59,7 @@ public class MainGuiClass extends Application {
 		}
 	}
 	
-	private void initMainWindow() {
-		
+	private void initMainWindow() {		
 		try {
 			
 			FXMLLoader loader = new FXMLLoader();

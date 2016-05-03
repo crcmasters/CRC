@@ -1,11 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="CRC.view.MainWindowController">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CRC.view.MainWindowController">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutX="194.0" layoutY="53.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <VBox layoutX="484.0" prefHeight="283.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="188.0">
+                           <children>
+                              <Label text="Metoda">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="28.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="methods" prefHeight="25.0" prefWidth="108.0">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="52.0" prefWidth="188.0">
+                           <children>
+                              <Label text="Błędne bity">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="incorrectBits" prefHeight="25.0" prefWidth="108.0">
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                           </children>
+                        </HBox>
+                        <Button fx:id="generate" disable="false" mnemonicParsing="false" onMouseClicked="#generateClicked" prefHeight="25.0" prefWidth="175.0" text="Generuj sekwencję bitów">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="submit" disable="true" layoutX="15.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#submitClicked" prefHeight="25.0" prefWidth="175.0" text="Potwierdź">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="check" disable="true" layoutX="10.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#checkClicked" prefHeight="25.0" prefWidth="175.0" text="Sprawdź">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="originalBits" disable="true" layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#originalBitsClicked" prefHeight="25.0" prefWidth="175.0" text="Bity orginalne">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="showAsText" disable="true" layoutX="15.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#showAsTextClicked" prefHeight="25.0" prefWidth="175.0" text="Pokaż jako tekst">
+                           <VBox.margin>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="14.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="94.0" text="Wprowadź tekst">
+                           <VBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextArea fx:id="enterText" prefHeight="236.0" prefWidth="353.0">
+                           <VBox.margin>
+                              <Insets left="5.0" right="10.0" top="15.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <VBox layoutX="44.0" layoutY="21.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <Label text="Wygenerowana ramka kodu">
+                           <VBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextArea fx:id="generatedCode" prefHeight="229.0" prefWidth="573.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="15.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                  </VBox>
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>
